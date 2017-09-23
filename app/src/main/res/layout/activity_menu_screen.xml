@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_menu_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.fistelo.debthelper.MenuScreenActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/menubuttons_layout">
+
+        <Button
+            android:text="@string/debt_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/debts_button"
+            android:layout_marginTop="@dimen/menuButtonMargin"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/menuButtonMargin"
+            android:paddingLeft="@dimen/menuButtonPadding"
+            android:paddingRight="@dimen/menuButtonPadding"
+            android:textSize="@dimen/menuButtonTextSize" />
+
+        <Button
+            android:text="@string/new_debt_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_debt_button"
+            android:layout_marginTop="@dimen/menuButtonMargin"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/menuButtonMargin"
+            android:paddingLeft="@dimen/menuButtonPadding"
+            android:paddingRight="@dimen/menuButtonPadding"
+            android:textSize="@dimen/menuButtonTextSize" />
+
+        <Button
+            android:text="@string/settings_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button4"
+            android:layout_marginTop="@dimen/menuButtonMargin"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/menuButtonMargin"
+            android:paddingLeft="@dimen/menuButtonPadding"
+            android:paddingRight="@dimen/menuButtonPadding"
+            android:textSize="@dimen/menuButtonTextSize" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imageView"
+        android:layout_above="@id/menubuttons_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="30dp" />
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DebtHelper</string>
+    <string name="debt_button">Debts</string>
+    <string name="new_debt_button">New debt</string>
+    <string name="settings_button">Settings</string>
+    <string name="DebtNameHint">What for?</string>
+    <string name="DebtCreationTitle">Debt Creation</string>
+    <string name="NumberOfPeople">People amount</string>
+    <string name="Prize">Prize</string>
+    <string name="DebtDescription">description...</string>
+    <string name="add_debt">Add</string>
+    <string name="includeme_checkbox">Include me</string>
+    <string name="no_name">Noname</string>
+</resources>
