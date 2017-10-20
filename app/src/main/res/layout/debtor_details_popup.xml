@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,27 +9,86 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/nvm"
+            android:layout_weight="8.03"
+            tools:text="Name"
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
         <EditText
             android:layout_width="69dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name: "
             android:ems="10"
-            android:id="@+id/nvm"
-            android:layout_weight="5.24" />
+            android:id="@+id/debtorNameToEdit"
+            android:layout_weight="35.68" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
-            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/axs"
+            android:layout_weight="0.37"
+            tools:text="Part:"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/tootCounterPart"
+            android:textAlignment="center"
+            android:layout_weight="0.03" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/kmld"
+            android:layout_weight="0.15"
+            tools:text="/"
+            android:textSize="24sp"
+            android:textAlignment="center" />
+
+        <EditText
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/tootDenominatorPart"
+            android:layout_weight="0.13" />
+
+        <TextView
+            android:text="of prize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/dName"
-            android:layout_weight="30.98" />
+            android:id="@+id/textView6"
+            android:layout_weight="0.48" />
     </LinearLayout>
+
+    <Button
+        android:text="Apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/applyEditDebtorChanges" />
+
 </LinearLayout>
