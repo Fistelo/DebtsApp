@@ -1,5 +1,6 @@
 package com.fistelo.debthelper;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class NewDebtActivity extends AppCompatActivity {
     private ListView listView;
     private CustomArrayAdapter adapter;
     private ListData listData;
+    private Dialog AddDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,51 +42,14 @@ public class NewDebtActivity extends AppCompatActivity {
         adapter = new CustomArrayAdapter(this, listData);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    final int position2 = position;
-                    String debtorName = adapter.getItem(position);
-                    Fraction toot = adapter.getTootValueFromPosition(position);
-                    final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(NewDebtActivity.this);
-                    View editDebtorView = getLayoutInflater().inflate(R.layout.debtor_details_popup, null);
-                    final EditText debtorNameET = (EditText) editDebtorView.findViewById(R.id.debtorNameToEdit);
-                    final EditText tootCounterPart = (EditText) editDebtorView.findViewById(R.id.tootCounterPart);
-                    final EditText tootDenominatorPart = (EditText) editDebtorView.findViewById(R.id.tootDenominatorPart);
-                    final Button applyButton = (Button) editDebtorView.findViewById(R.id.applyEditDebtorChanges);
-
-                    debtorNameET.setText(debtorName);
-                    tootCounterPart.setText(toot.getStringCounter());
-                    tootDenominatorPart.setText(toot.getStringDenominator());
-
-                    applyButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            if(!debtorNameET.getText().toString().isEmpty() && !tootCounterPart.getText().toString().isEmpty()
-                                    && !tootDenominatorPart.getText().toString().isEmpty()){
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        adapter.setNameValueAtPosition(position2, debtorNameET.getText().toString());
-                                        adapter.setTootValueAtPosition(position2, new Fraction(Integer.parseInt(tootCounterPart.getText().toString()),
-                                                Integer.parseInt(tootDenominatorPart.getText().toString())));
-                                        adapter.notifyDataSetChanged();
-                                    }
-                                });
-                            }else
-                                Toast.makeText(NewDebtActivity.this, "Fill all of the fields",Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-                    alertBuilder.setView(editDebtorView);
-                    AlertDialog dialog = alertBuilder.create();
-                    dialog.show();
-                }
-            }
-        );
     }
 
-    private void popUpEditWindow(final int position){
+    private void popUpAddWindow(){
+        AddDialog = new Dialog(NewDebtActivity.this);
+        AddDialog.setContentView(R.layout.debtor_details_popup);
+        AddDialog.setTitle("Add new debtor");
+
+
 
     }
 
