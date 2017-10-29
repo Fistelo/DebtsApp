@@ -33,8 +33,36 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/debtorNameToEdit"
-            android:layout_weight="35.68" />
+            android:layout_weight="18.94" />
 
+        <CheckBox
+            android:text="It's me"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox"
+            android:layout_weight="8.03" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton2"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Prize" />
+
+        <RadioButton
+            android:text="Part"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButton"
+            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout

@@ -46,7 +46,7 @@ public class NewDebtActivity extends AppCompatActivity {
                     final int position2 = position;
                     String debtorName = adapter.getItem(position);
                     Fraction toot = adapter.getTootValueFromPosition(position);
-                    AlertDialog.Builder alertBuilder = new AlertDialog.Builder(NewDebtActivity.this);
+                    final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(NewDebtActivity.this);
                     View editDebtorView = getLayoutInflater().inflate(R.layout.debtor_details_popup, null);
                     final EditText debtorNameET = (EditText) editDebtorView.findViewById(R.id.debtorNameToEdit);
                     final EditText tootCounterPart = (EditText) editDebtorView.findViewById(R.id.tootCounterPart);
@@ -62,15 +62,20 @@ public class NewDebtActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             if(!debtorNameET.getText().toString().isEmpty() && !tootCounterPart.getText().toString().isEmpty()
                                     && !tootDenominatorPart.getText().toString().isEmpty()){
-                                adapter.setNameValueAtPosition(position2, debtorNameET.getText().toString());
-                                adapter.setTootValueAtPosition(position2, new Fraction(Integer.parseInt(tootCounterPart.getText().toString()),
-                                        Integer.parseInt(tootDenominatorPart.getText().toString())));
-
-
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        adapter.setNameValueAtPosition(position2, debtorNameET.getText().toString());
+                                        adapter.setTootValueAtPosition(position2, new Fraction(Integer.parseInt(tootCounterPart.getText().toString()),
+                                                Integer.parseInt(tootDenominatorPart.getText().toString())));
+                                        adapter.notifyDataSetChanged();
+                                    }
+                                });
                             }else
                                 Toast.makeText(NewDebtActivity.this, "Fill all of the fields",Toast.LENGTH_SHORT).show();
                         }
                     });
+
                     alertBuilder.setView(editDebtorView);
                     AlertDialog dialog = alertBuilder.create();
                     dialog.show();
